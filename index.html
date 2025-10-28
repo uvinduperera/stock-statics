@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-time Sri Lanka Stock Market Rates - Colombo Stock Exchange (CSE)">
+    <title>LK Stock Rates - Colombo Stock Exchange</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🇱🇰 LK Stock Rates</h1>
+                <p class="subtitle">Real-time Colombo Stock Exchange Data</p>
+                <div class="header-actions">
+                    <button id="theme-toggle" class="icon-btn" title="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button id="refresh-btn" class="icon-btn" title="Refresh data">
+                        <span class="refresh-icon">🔄</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Market Status -->
+        <section class="market-status">
+            <div class="status-card">
+                <div class="status-indicator">
+                    <span class="status-dot" id="market-status-dot"></span>
+                    <span id="market-status-text">Loading...</span>
+                </div>
+                <div class="last-updated">
+                    Last updated: <span id="last-update-time">--:--</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar -->
+        <section class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="stock-search" 
+                    placeholder="Search stock by symbol or name (e.g., LOLC, JKH, COMB)"
+                    autocomplete="off"
+                >
+                <button id="search-btn" class="search-btn">Search</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </section>
+
+        <!-- Market Summary -->
+        <section class="market-summary">
+            <h2>Market Overview</h2>
+            <div id="market-summary-cards" class="summary-cards">
+                <div class="summary-card loading">
+                    <div class="card-label">ASPI</div>
+                    <div class="card-value">--</div>
+                    <div class="card-change">-- (--)</div>
+                </div>
+                <div class="summary-card loading">
+                    <div class="card-label">S&P SL20</div>
+                    <div class="card-value">--</div>
+                    <div class="card-change">-- (--)</div>
+                </div>
+                <div class="summary-card loading">
+                    <div class="card-label">Turnover</div>
+                    <div class="card-value">--</div>
+                    <div class="card-change">LKR</div>
+                </div>
+                <div class="summary-card loading">
+                    <div class="card-label">Volume</div>
+                    <div class="card-value">--</div>
+                    <div class="card-change">Shares</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Gainers and Losers -->
+        <section class="movers-section">
+            <div class="movers-container">
+                <!-- Top Gainers -->
+                <div class="movers-card">
+                    <h3 class="movers-title">📈 Top Gainers</h3>
+                    <div id="top-gainers" class="movers-list">
+                        <div class="loading-message">Loading top gainers...</div>
+                    </div>
+                </div>
+
+                <!-- Top Losers -->
+                <div class="movers-card">
+                    <h3 class="movers-title">📉 Top Losers</h3>
+                    <div id="top-losers" class="movers-list">
+                        <div class="loading-message">Loading top losers...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Data provided by <a href="https://www.cse.lk" target="_blank" rel="noopener">Colombo Stock Exchange</a>
+            </p>
+            <p class="disclaimer">
+                Disclaimer: This website provides information for educational purposes only. 
+                Please verify all data before making investment decisions.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
