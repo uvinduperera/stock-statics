@@ -341,12 +341,12 @@ async function handleSearch() {
             displayStockDetails(stockData);
         } else {
             resultsContainer.innerHTML = 
-                `<div class="error-message">Stock "${searchTerm}" not found. Try symbols like JKH, LOLC, COMB, etc.</div>`;
+                `<div class="error-message">Stock "${escapeHtml(searchTerm)}" not found. Try symbols like JKH, LOLC, COMB, etc.</div>`;
         }
     } catch (error) {
         console.error('Error searching stock:', error);
         resultsContainer.innerHTML = 
-            `<div class="error-message">Error searching for "${searchTerm}". Please try again.</div>`;
+            `<div class="error-message">Error searching for "${escapeHtml(searchTerm)}". Please try again.</div>`;
     }
 }
 
@@ -477,6 +477,12 @@ async function fetchCSEData(endpoint, data = {}) {
 }
 
 // Utility functions
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
 function formatNumber(num) {
     if (!num && num !== 0) return '0';
     const number = parseFloat(num);
