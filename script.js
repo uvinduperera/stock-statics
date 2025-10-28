@@ -29,7 +29,9 @@ function toggleTheme() {
 
 function updateThemeIcon() {
     const themeIcon = document.querySelector('.theme-icon');
-    themeIcon.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+    if (themeIcon) {
+        themeIcon.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+    }
 }
 
 // Event Listeners
